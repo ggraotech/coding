@@ -1,0 +1,672 @@
+<!-- <!-- <!-- <!DOCTYPE html>
+<html>
+  <body>
+    <label> ENTER SOMETHING: </label>
+    <input id="name" type="text">
+    <button onclick="addto(); clearInput()">Click here</button>
+    <br><br>
+
+    <ul id="print">
+      <!-- Existing list items will be placed here -->
+    <!-- </ul>
+    
+    <script>
+      let myarr = [];
+
+      function clearInput() {
+        let getValue = document.getElementById("name");
+        if (getValue.value !== "") {
+          getValue.value = "";
+        }
+      }
+
+      function addto() {
+        myarr.push(document.getElementById("name").value);
+        console.log(myarr);
+        let listItems = myarr.map(item => `<li>${item} <button onclick="deleteItem('${item}')">Delete</button></li>`);
+        document.getElementById("print").innerHTML = listItems.join("");
+
+        clearInput();
+      }
+
+      function deleteItem(item) {
+        let index = myarr.indexOf(item);
+        if (index !== -1) {
+          myarr.splice(index, 1);
+          addto(); // Re-render the list
+        }
+      }
+    </script>
+  </body>
+</html> --> 
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <body>
+    <label> ENTER SOMETHING: </label>
+    <input id="name" type="text">
+    <button onclick="addto(); clearInput();">Click here</button>
+    <br><br>
+
+    <ul id="print">
+    </ul>
+          
+    <script>
+        let myarr = [];
+        
+        function clearInput() {
+            let getValue = document.getElementById("name");
+            if (getValue.value !== "") {
+                getValue.value = "";
+            }
+        }
+
+        function addto() {
+            myarr.push(document.getElementById("name").value);
+            console.log(myarr);
+            let listItems = myarr.map(item => `<li>${item} <button onclick="deleteItem('${item}')">Delete</button></li>`);
+            document.getElementById("print").innerHTML = listItems.join("");
+
+            clearInput();
+        }
+
+        function deleteItem(item) {
+            let index = myarr.indexOf(item);
+            if (index !== -1) {
+                myarr.splice(index, 1);
+                addto(); // Re-render the list
+            }
+        }
+    </script>
+  </body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <body>
+    <label> ENTER SOMETHING: </label>
+    <input id="name" type="text">
+    <button onclick="addValue(); clearInput();">Add</button>
+    <br><br>
+
+    <ul id="print">
+    </ul>
+          
+    <script>
+        let myarr = [];
+        
+        function clearInput() {
+            let getValue = document.getElementById("name");
+            if (getValue.value !== "") {
+                getValue.value = "";
+            }
+        }
+
+        function addValue() {
+            let newValue = document.getElementById("name").value;
+            if (newValue.trim() !== "") {
+                myarr.push(newValue);
+                displayValues();
+            }
+        }
+
+        function displayValues() {
+            let listItems = myarr.map((item, index) => `
+                <li>
+                    ${item} 
+                    <button onclick="editValue(${index})">Edit</button>
+                    <button onclick="deleteValue(${index})">Delete</button>
+                </li>
+            `);
+            console.log(myarr);
+            document.getElementById("print").innerHTML = listItems.join("");
+
+            clearInput();
+        }
+
+        function editValue(index) {
+            let newValue = prompt("Enter the new value:", myarr[index]);
+            if (newValue !== null) {
+                myarr[index] = newValue;
+                displayValues();
+            }
+        }
+
+        function deleteValue(index) {
+            myarr.splice(index, 1);
+            displayValues();
+            console.log(myarr);
+        }
+    </script>
+  </body>
+</html>
+
+ -->
+
+
+ <!-- <!DOCTYPE html>
+<html>
+    <body>
+        <label>TYPE SOMETHING</label>
+        <input id="input" type="text">
+        <button onclick="add()">add</button>
+        <br><br>
+        <ul id="print">
+        </ul>
+
+        <script>
+            let array = [];
+
+            function clearInput() {
+                let getValue= document.getElementById("input");
+                if (getValue.value !="") {
+                    getValue.value = "";
+                }
+            }
+
+            function add() {
+                value = document.getElementById("input").value;
+                array.push(value);
+                clearInput();
+                displayValues();
+            }
+
+            function displayValues() {
+                const printList = document.getElementById("print");
+                printList.innerHTML = '';
+
+                for (let i = 0; i < array.length; i++) {
+                    const listItem = document.createElement('li');
+                    listItem.innerText = array[i];
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.innerText = 'delete';
+                    deleteButton.addEventListener('click', () => {
+                        array.splice(i, 1);
+                        displayValues();
+                    });
+
+                    const editButton = document.createElement('button');
+                    editButton.innerText = 'edit';
+                    editButton.addEventListener('click', () => {
+                        let value = prompt("Enter the new value:", array[i]);
+                        if (value !== null) {
+                            array[i] = value;
+                            displayValues();
+                        }
+                    });
+
+                    listItem.appendChild(deleteButton);
+                    listItem.appendChild(editButton);
+                    printList.appendChild(listItem);
+                }
+            }
+        </script>
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Courier;
+            font-size: 25px;
+            background-color: rgb(66, 66, 248);
+            padding: 100px;
+            text-align: center;
+        }
+
+        div {
+            border-radius: 10px;
+            background-color: #ffffff;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        label {
+            text-align: center;
+            padding: 1px;
+            margin: 1px;
+            color: rgb(66, 66, 248);
+        }
+
+        input[type="text"] {
+            text-align: center;
+            padding: 8px;
+            margin: 1px;
+            border: 3px solid rgb(66, 66, 248);
+            border-radius: 10px;
+            width: 60%;
+            transition: border-color 0.3s;
+            float: left; /* Align input on left side */
+        }
+
+        button {
+            text-align: end;
+            padding: 8px 12px;
+            background-color: rgb(66, 66, 248);
+            border: 3px solid rgb(66, 66, 248);
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            float: right; /* Align buttons on right side */
+            margin-top: 10px; /* Add some margin between input and buttons */
+        }
+
+        button:hover {
+            background-color: rgb(12, 12, 116);
+        }
+
+        ol {
+            list-style: none;
+            margin: 10px 100px;
+            padding: 0;
+        }
+
+        li {
+            text-align: left;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid rgb(66, 66, 248);
+            border-radius: 10px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        button.fa {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid rgb(12, 12, 116);
+            border-radius: 10px;
+            margin-right: 10px;
+            transition: color 0.3s;
+        }
+
+        button.fa:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <label>To Do List</label>
+    <br><br>
+    <input id="input" type="text" placeholder="enter Something" onfocus="this.placeholder=''" onblur="this.placeholder='enter Something'">
+    <button onclick="add()">add</button>
+    <br><br>
+    <ol id="print";>
+    </ol>
+</div>
+
+<script>
+    let array = [];
+    function clearInput() {
+        let getValue= document.getElementById("input");
+        if (getValue.value !="") {
+            getValue.value = "";
+        }
+    }
+
+    function add() {
+        let text = document.getElementById("input").value;
+        let newtext = array.push(text);
+        clearInput();
+        displayValues();
+    }
+
+    function displayValues() {
+        let text = document.getElementById("print");
+        text.innerHTML = '';
+
+        for (let i = 0; i < array.length; i++) {
+            let list = document.createElement('li');
+            list.innerText = array[i];
+            console.log(array);
+
+            let deleteButton = document.createElement('button');
+            deleteButton.classList.add("fa", "fa-trash");
+            deleteButton.addEventListener('click', () => {
+                array.splice(i, 1);
+                displayValues();
+                console.log(array);
+            });
+
+            let editButton = document.createElement('button');
+            editButton.classList.add("fa", "fa-pencil");
+            editButton.addEventListener('click', () => {
+                let value = prompt("Enter the new value:", array[i]);
+                if (value !== null) {
+                    array[i] = value;
+                    displayValues();
+                    console.log(array);
+                }
+            });
+
+            list.appendChild(deleteButton);
+            list.appendChild(editButton);
+            text.appendChild(list);
+        }
+    }
+</script>
+
+</body>
+</html>
+<!-- <style>
+    body {
+        width: auto;
+        text-align: center; 
+        align-items: center;
+        font-family: Courier;
+        margin: auto;
+        font-size: 25px;
+        background-color: rgb(66, 66, 248);
+        padding: 100px ;
+    }
+
+    div {
+        position: relative;
+        text-align: center;
+        align-items: center;
+        /* width: auto; */
+        border-radius: 10px;
+        background-color: #ffffff;
+        padding: 10px;
+        margin: 20px;
+    }
+
+    label {
+        
+        padding: 1px;
+        margin: 1px;
+        color: rgb(66, 66, 248);
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        margin: 1px;
+        border: 3px solid rgb(66, 66, 248);
+        border-radius: 10px;
+        /* width: 60%; */
+        transition: border-color 0.3s;
+    }
+
+    button {
+        padding: 8px 12px;
+        background-color: rgb(66, 66, 248);
+        border: 3px solid rgb(66, 66, 248);
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: rgb(12, 12, 116);
+    }
+
+    ol {
+        list-style: none;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    li {
+        padding: 8px;
+        margin: 10px auto;
+        border: 1px solid rgb(66, 66, 248);
+        border-radius: 10px;
+        /* width: 70%; */
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    button.fa {
+        font-size: 18px;
+        border: 2px solid rgb(12, 12, 116);
+        border-radius: 10px;
+        margin-right: 10px;
+        transition: color 0.3s;
+        float: right;
+        margin-top: auto;
+    }
+
+    button.fa:hover {
+        color: white;
+    }
+</style> 
+
+
+
+
+<!DOCTYPE html>
+<html>
+    
+     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    
+    <body class="bg-primary">
+        <div class="container h-25 w-50 bg-white  p-5 mt-5 text-dark">
+            <div class="row">
+                <h1 class="display-1 mt-5 mb-5 text-center">To Do List</h1>
+                <p class="h3 mb-5 text-center">Enter Your Everyday Tasks</p>
+            
+                <div class="col-sm-9 text-center">
+                    <input class="input-group form-control-lg" id="input" type="text" placeholder="enter Something" onfocus="this.placeholder=''" onblur="this.placeholder='enter Something'">
+                </div>
+
+                <div class="col-sm-3 text-center">
+                    <button class="input-group btn btn-primary btn-lg btn-outline-dark" id="btn" onclick="validate()">Add Task</button>
+                </div>
+                <ol class="list-group list-unstyled h4" id="print"></ol>
+        </body>
+
+        <script>
+            let array = [];
+            let getValue = document.getElementById("input");
+                getValue.addEventListener("keypress", function(event) {
+                    if( event.key === "Enter") {
+                        event.preventDefault();
+                        document.getElementById("btn").click();
+                    }
+                });
+
+            function validate() {
+                getValue = document.getElementById("input").value;
+                if (getValue == "" || getValue == null) {
+                    alert('Please enter a value');
+                }
+                else {
+                    add();
+                }
+            }
+
+            function clearInput() {
+                let getValue= document.getElementById("input");
+                if (getValue.value !="") {
+                    getValue.value = "";
+                }
+    
+            }
+
+            function add() {
+                let text = document.getElementById("input").value;
+                let newtext = array.push(text);
+                clearInput();
+                displayValues();
+
+            }
+
+            function displayValues() {
+                
+                let text = document.getElementById("print");
+                text.innerHTML = '';
+
+            
+                for (let i = 0; i < array.length; i++) {
+
+                    let div = document.createElement('div');
+                    div.classList.add("row");
+
+                    let list = document.createElement('li');
+                    list.classList.add("list-group-item", "list-group-item-info", "m-2", "col-sm-8");
+                    list.innerText = array[i];
+                    console.log(array);
+
+
+                    let deleteButton = document.createElement('button');
+                    deleteButton.classList.add("fa", "fa-trash", "btn-primary" , "btn-group", "col-sm-2");
+                    deleteButton.addEventListener('click', () => {
+                        array.splice(i, 1);
+                        displayValues();
+                        console.log(array);
+                    });
+
+                    let editButton = document.createElement('button');
+                    editButton.classList.add("fa", "fa-pencil",  "btn-primary", "btn-group", "col-sm-2");
+                    //editButton.innerText = 'edit';
+                    editButton.addEventListener('click', () => {
+                        let value = prompt("Enter the new value:", array[i]);
+                        if (value !== null) {
+                            array[i] = value;
+                            displayValues();
+                            console.log(array);
+                        }
+                    });
+                    text.appendChild(div);
+                    div.appendChild(list);
+                    div.appendChild(deleteButton);
+                    div.appendChild(editButton);
+                    
+                }
+            }
+        </script>
+
+</body>
+<div class="row">
+    <li class="col-md-8">text</li>
+    <button class="btn-primary col-md-2">add</button>
+    <button class="btn-primary col-md-2">delete</button>
+</div>
+</html>
+<body> -->
+
+
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            /* Custom CSS for further styling */
+            body {
+                background-color: #333;
+                color: #fff;
+                margin: 0;
+            }
+            .container {
+                padding: 0;
+            }
+            .text-block {
+                width: 100%;
+            }
+            /* Add more custom styles as needed */
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid p-5 bg-dark text-center">
+            <div class="row align-items-center">
+                <div class="col-md-1">
+                    <img class="img-fluid" style="filter: grayscale(100%);" src="image.png" alt="Logo">
+                </div>
+                <div class="col-md-4 m-4">
+                    <h1 class="display-4 company-name">COMPANY NAME</h1>
+                </div>
+            </div>
+            <div class="text-block bg-secondary text-center rounded-pill mt-3">
+                <p class="m-0 p-2">THE BEST COMPANY YOU WILL EVER FIND!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="display-1 text-center">OUR SERVICES  </h1>
+                <div class="container   ">
+                    <div class="row p-3">
+                        <div class="col-md-1">
+                            <h1 class="display-1 text-white">01</h1>
+                        </div>
+                        <div class="col-md-11">
+                            <h2 class="fw-bold" style="color: rgb(129, 129, 129);">Cloud Service</h2>
+                            <h3 >Cloud services provide many ways for business team members to interact with the technology they need. The cloud is an internet-connected platform that can store and access information and programs. Since the cloud stores the information instead of holding it on a computer, team members can access and use it whether at home or in the office. Some cloud services can even run operation systems remotely, allowing team members to use internal business programs remotely without installing them on their computers.</h3>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-md-1 text-white">
+                            <h1 class="display-1">02</h1>
+                        </div>
+                        <div class="col-md-11">
+                            <h2 class="fw-bold" style="color: rgb(129, 129, 129);">Backup solutions</h2>
+                            <h3>Backup solutions protect information loss from occurring by storing copies of data on external hardware or online platforms, such as a cloud service. Information backup services can help protect your business' information should any issues occur, like a power outage or system failure. Many information backup services exist, such as file backup, server backup and even desktop backup. Businesses can schedule automatic backups for their files to save the most recent versions of the files they create to ensure data is secure.</h3>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-md-1">
+                            <h1 class="display-1 text-white">03</h1>
+                        </div>
+                        <div class="col-md-11">
+                            <h2 class="fw-bold"style="color: rgb(129, 129, 129);">Monitoring</h2>
+                            <h3>IT services can monitor your network, internet traffic, computers and other internet-enabled devices. Monitoring allows IT teams to keep track of who accesses their businesses' information, whether any technology requires repairs and if any computers need software updates or modifications. Essentially, this IT service ensures that your team members have the tools and resources they need to complete their tasks.</h3>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="col-md-4">
+                <div class="container">
+                    <div class="row text-white bg-body-secondary w-100%">
+                        <h1 class="display-4 text-center p-3 mt-5" style="text-decoration: underline; text-underline-offset: 0.2em;">ABOUT US</h1>
+                        <h3 class="text-center text-white bg-body-secondary mb-5">Just over a year ago, we became fascinated by the idea of discovering the world through someone else's eyes. what if you colud see trough the eyes of a protester in Ukraine? Or watch the sunrise from a hot air balloon in cappadocia? it may sound crazy.</h3>
+                    </div>
+                    <div class="row text-white" style="background-color: rgb(82, 82, 82); ">
+                        <h1 class="display-4 text-center p-3 mt-5" style="text-decoration: underline; text-underline-offset: 0.2em;" >CONTACT US</h1>
+                        <ol class=" text-center text-white" style="background-color: rgb(82, 82, 82); list-style: none;">
+                            <li style="font-size: medium;">Email : example@gmail.com</li>
+                            <li class="mb-5" style="font-size: medium;">Contact-Number : +91 9909909909</li>
+                        </ol>
+                    </div>
+                    <div class="row" style="background-color: rgb(100, 100, 100);">
+                        <a class="display-6 link-info text-center text-white p-4 mb-5" href="https://www.google.com/">To Know More</a>
+                    </div>
+                </div>
+
+            </div>
+                                    
+
+        
+        </div>
+        <!-- Rest of your content goes here -->
+    
+        <div class="container-fluid p-5 bg-dark text-center">
+            <h4 class="fw-bold">THANK YOU FOR VISITING!</h4>
+        </div>
+    </body>
+    </html>
+    
+    

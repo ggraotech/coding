@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .tutorial {
+            margin-left: auto;
+            margin-right: auto;
+            list-style-position: inside;
+            width: 60%;
+            padding: 50px; 
+            background-color: black;
+            border: 5px solid white;
+            box-shadow: 9px 6px 4px rgb(85, 84, 84);
+    }
+    </style>
+    
+    <body class="tutorial" style="text-align: center;">
+        
+        
+        <h2 style="color: white;">ADDING TWO NUMBERS</h2>
+        <label style="color: white;" for="name">first number</label>
+        <input type="number" id="firstnumber">
+        <br><br>
+
+        <label style="color: white;" for="name">secound number</label>
+        <input type="number" id="secondnumber">
+        <br><br> 
+
+        <button onclick="isbuttonclicked = true ; addition()">addition</button>
+        <button onclick="isbuttonclicked = true ; multiplication()">multiplication</button>
+        <button onclick="isbuttonclicked = true ; subtraction()">subtraction</button>
+        <button onclick="isbuttonclicked = true ; division()">division</button>
+        <br><br> 
+
+        <button onclick="checkifbuttonisclicked()">answer</button>
+        <input type="number" id="answer">
+        <br><br>
+
+
+    </body>
+
+    <script>
+        let isbuttonclicked = false;
+        let operation = ''
+        function addition() {
+            let a = Number(document.getElementById("firstnumber").value);
+            let b = Number(document.getElementById("secondnumber").value);
+            operation = "addition"
+        }
+
+        function multiplication() {
+            
+            let a = document.getElementById("firstnumber").value;
+            let b = document.getElementById("secondnumber").value;
+            operation = "multiplication"
+        }
+
+        function subtraction() {
+            
+            let a = document.getElementById("firstnumber").value;
+            let b = document.getElementById("secondnumber").value;
+            operation = "subtraction"
+        }
+
+        function division() {
+            let a = document.getElementById("firstnumber").value;
+            let b = document.getElementById("secondnumber").value;
+            operation = "division"
+        }
+
+
+        function performoperation() {
+            let a = Number(document.getElementById("firstnumber").value);
+            let b = Number(document.getElementById("secondnumber").value);
+            if(b == '' ){
+                alert("please enter 2nd number")
+            }else{
+                if (operation == "addition")
+                    console.log("a","b",a,b)
+                    document.getElementById("answer").value = a + b ;
+                }if(operation == 'subtraction'){
+                    document.getElementById("answer").value = a - b ;
+                }if(operation == 'multiplication'){
+                    document.getElementById("answer").value = a * b ;
+                }if(operation == 'division'){
+                    document.getElementById("answer").value = a / b ;
+                }
+            }
+        function checkifbuttonisclicked() {
+            if (isbuttonclicked == false) {
+                alert("select one operation");
+            }
+            else{
+                performoperation();
+            }
+            
+        }
+
+
+
+    </script>
+</html> 
+
+
