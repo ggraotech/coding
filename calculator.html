@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CALCULATOR</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        
+        .tbstyle {
+            margin-bottom: auto;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input {
+            height: 100px;
+            width: 100px;
+            border: 2px solid black"
+            
+        }
+
+        .buttonstyle {
+            border-radius: 12px;
+        }
+
+        .display {
+            background-color: rgb(48, 45, 45);
+            font-size: 30px;
+            text-align: right;
+            color: aliceblue;
+            height: 100px;
+            width: 400px;
+            border: 5px;
+        }
+
+        
+
+    </style>
+    <script>
+        function clearScreen() {
+            document.getElementById("result").value = "";
+        }
+        
+        // This function displays the values
+        function display(value) {
+            document.getElementById("result").value += value;
+        }
+        
+        // This function evaluates the expression and returns the result
+        function calculate() {
+            var p = document.getElementById("result").value;
+            var q = eval(p);
+            document.getElementById("result").value = q;
+        }
+    </script>
+
+  </head>
+  <body>
+    <div class="container" >
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8" style="margin-top: 50px;">
+            <table class="tbstyle" > 
+                <tr>
+                    <th><input class="display-box display buttonstyle" id="result" type="text"  style="margin-bottom: 5px;"></th>
+                </tr>
+                <table class="tbstyle ">
+                    <tr>
+                        <td><input class="buttonstyle" style="background-color: gray;" type="button" value="+" onclick="display('+')" ></td>
+                        <td><input class="buttonstyle" style="background-color: gray;" type="button" value="-" onclick="display('-')" ></td>
+                        <td><input class="buttonstyle" style="background-color: gray;" type="button" value="*" onclick="display('*')"></td>
+                        <td><input class="buttonstyle" style="background-color: gray;" type="button" value="/" onclick="display('/')" ></td>
+                    </tr>
+                    <tr>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="7" onclick="display('7')" ></td>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="8" onclick="display('8')" ></td>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="9" onclick="display('9')" ></td>
+                        <td rowspan="4" ><input class="buttonstyle" style="height: 400px; background-color: rgb(255, 102, 0);" type="button" value="=" onclick="calculate()" id="btn"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="4" onclick="display('4')" ></td>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="5" onclick="display('5')" ></td>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="6" onclick="display('6')" ></td>
+                    </tr>
+                    <tr>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="1" onclick="display('1')" ></td>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="2" onclick="display('2')" ></td>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="3" onclick="display('3')" ></td>
+                    </tr>
+                    <tr>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="0" onclick="display('0')" ></td>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="." onclick="display('.')" ></td>
+                        <td><input class="buttonstyle" style="background-color: white;" type="button" value="AC" onclick="clearScreen()" ></td>
+                    </tr>
+
+                </table>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+
+    </div>                
+    </table>
+
+  </body>
+
+
